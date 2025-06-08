@@ -41,11 +41,11 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  const { data: profile, error: profileError } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single();
+  // const { data: profile, error: profileError } = await supabase
+  //   .from("profiles")
+  //   .select("*")
+  //   .eq("id", user.id)
+  //   .single();
 
   // Merchandise not ready
   if (pathname.startsWith("/merch")) {

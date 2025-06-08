@@ -56,6 +56,7 @@ function extractTransactionDetails(text: string): TransactionDetails {
 const FullMerchDisplay = ({
   merch,
   membership,
+  user,
 }: {
   merch: FullMerch;
   membership: boolean;
@@ -408,6 +409,7 @@ const FullMerchDisplay = ({
                 }}
                 variant="outline"
                 className="flex-1"
+                disabled={user == null}
               >
                 Add to Cart
               </Button>
@@ -417,6 +419,7 @@ const FullMerchDisplay = ({
                   setOpenConfirmation(true);
                 }}
                 className="flex-1"
+                disabled={user == null}
               >
                 Buy Now
               </Button>

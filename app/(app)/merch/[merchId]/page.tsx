@@ -32,9 +32,6 @@ const MerchandisePage = async ({ params }: { params: { merchId: string } }) => {
     data: { user },
     error: userError,
   } = await supabase.auth.getUser();
-  if (userError) {
-    return <p>Not logged in!</p>;
-  }
 
   let { data: membership_status, error: membershipError } = await supabase
     .from("memberships")
@@ -48,6 +45,7 @@ const MerchandisePage = async ({ params }: { params: { merchId: string } }) => {
         <FullMerchDisplay
           merch={merch}
           membership={membership_status != null}
+          user={user}
         />
       ) : (
         <p>No Merchandise Found!</p>
